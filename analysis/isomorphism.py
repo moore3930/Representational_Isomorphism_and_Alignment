@@ -29,7 +29,7 @@ def topK_cos_retrieve(tensor1, tensor2, k):
     return topk_acc
 
 
-def get_acc(src_path, tgt_path, seed, k=10, method="centre"):
+def get_acc(src_path, tgt_path, seed, k=10):
     en_emb_path = src_path
     de_emb_path = tgt_path
 
@@ -90,7 +90,7 @@ for seed in range(74, 75):
         for j in range(len(pathes)):
             src_path = pathes[i]
             tgt_path = pathes[j]
-            result = get_acc(src_path, tgt_path, seed, 1000, 'procrustes')
+            result = get_acc(src_path, tgt_path, seed, 1000)
             temp.append("{} / {}".format(result['P@5-org'], result['P@5-proj']))
 
             if i != j:
